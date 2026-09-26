@@ -10405,9 +10405,7 @@ Pages.bindClick(container, (e) => {
         return '<div class="calendar-cell ' + (isToday?'today':'') + ' ' + (isSelected?'selected':'') + ' ' + (hasEvents?'has-events':'') + '" data-action="select-date" data-date="' + cell.date + '"><div class="calendar-cell-top"><span class="calendar-day-num">' + cell.day + '</span>' + countBadge + '</div><div class="calendar-event-dots">' + eventDots + '</div>' + specialLabel + '</div>';
       }).join('') + '</div></div><div class="calendar-sidebar card"><div class="calendar-sidebar-header"><h3>' + Utils.formatDate(selectedDate) + '</h3><span class="calendar-event-count">' + selectedEvents.length + ' 项日程</span></div><div class="calendar-event-list">' + (selectedEvents.length > 0 ? selectedEvents.map(e => '<div class="calendar-event-item" style="border-left-color:' + (typeColors[e.type] || 'var(--accent)') + '"><div class="calendar-event-header"><span class="calendar-event-title ' + (e.completed?'completed':'') + '">' + Utils.escapeHtml(e.title) + '</span><span class="calendar-event-type" style="color:' + (typeColors[e.type] || 'var(--accent)') + '">' + (typeLabels[e.type] || e.type) + '</span></div>' + (e.time ? '<div class="calendar-event-time">⏰ ' + e.time + '</div>' : '') + '</div>').join('') : '<div class="empty-state"><p>这一天没有日程</p></div>') + '</div></div></div>';
     }
-    if (!container._calendarListenerBound) {
-      container._calendarListenerBound = true;
-      Pages.bindClick(container, (e) => {
+          Pages.bindClick(container, (e) => {
         const target = e.target.closest('[data-action]');
         if (!target) return;
         const action = target.dataset.action;
@@ -10476,10 +10474,8 @@ Pages.bindClick(container, (e) => {
           });
         }
       });
-    }
   },
-
-  // ===== 习惯打卡页面 =====
+// ===== 习惯打卡页面 =====
   renderHabits(container) {
     const allHabits = DataStore.Habits.getHabits();
     const today = Utils.todayStr();
