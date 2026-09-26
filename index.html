@@ -6352,13 +6352,25 @@ const Theme = {
 const AIClient = {
   // 系统提示词
   getSystemPrompt() {
+        const now = new Date();
+    const today = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
+    const weekdays = ['周日','周一','周二','周三','周四','周五','周六'];
     return `你是一个个人助手AI，帮助用户管理工作和生活。你可以访问用户的个人数据，包括今日计划、学习计划、工作计划、健身计划、饮食计划、游戏娱乐等。
+
+当前日期：${today}（${weekdays[now.getDay()]}）
 
 你的能力：
 1. 回答用户关于个人数据的问题
 2. 帮助用户添加任务（今日/学习/工作）
 3. 分析用户的数据并给出建议
 4. 进行日常对话和闲聊
+
+重要规则：
+- 添加任务时，截止日期(dueDate)必须是YYYY-MM-DD格式的具体日期
+- 如果用户说"明天"，就是今天+1天；"后天"就是今天+2天
+- "下周一"指下一个周一，"这周五"指本周周五
+- 不要返回"明天"、"下周"等自然语言，必须转换成具体日期
+- 今日待办的时间(time)格式为HH:MM，如"14:30"
 
 请使用简洁、友好的语言回答。当需要操作用户数据时，请使用提供的工具函数。`;
   },
@@ -6452,7 +6464,32 @@ const AIClient = {
     ];
   },
 
-  // 执行工具函数
+    // 解析自然语言日期为YYYY-MM-DD
+  parseDate(input) {
+    if (!input) return '';
+    input = input.trim();
+    if (/^\d{4}-\d{2}-\d{2}$/.test(input)) return input;
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const map = { '今天':0, '今日':0, '明天':1, '明日':1, '后天':2, '大后天':3 };
+    if (map[input] !== undefined) {
+      const d = new Date(today); d.setDate(d.getDate() + map[input]);
+      return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+    }
+    const weekMatch = input.match(/(下|这|本)?周([一二三四五六日天])/);
+    if (weekMatch) {
+      const dayMap = {'一':1,'二':2,'三':3,'四':4,'五':5,'六':6,'日':0,'天':0};
+      let diff = dayMap[weekMatch[2]] - today.getDay();
+      if (weekMatch[1] === '下') diff += 7; else if (diff <= 0) diff += 7;
+      const d = new Date(today); d.setDate(d.getDate() + diff);
+      return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+    }
+    const mdMatch = input.match(/(\d{1,2})月(\d{1,2})[日号]/);
+    if (mdMatch) return now.getFullYear()+'-'+String(parseInt(mdMatch[1])).padStart(2,'0')+'-'+String(parseInt(mdMatch[2])).padStart(2,'0');
+    return input;
+  },
+
+// 执行工具函数
   executeTool(name, args) {
     try {
       switch (name) {
@@ -6469,7 +6506,7 @@ const AIClient = {
           DataStore.Work.addTask({
             title: args.title,
             project: args.project || '',
-            dueDate: args.dueDate || '',
+            dueDate: this.parseDate(args.dueDate) || '',
             priority: args.priority || 'medium',
             status: 'todo',
             notes: args.notes || ''
