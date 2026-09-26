@@ -6375,6 +6375,13 @@ const AIClient = {
 - 不要返回"明天"、"下周"等自然语言，必须转换成具体日期
 - 今日待办的时间(time)格式为HH:MM，如"14:30"
 
+工具使用指引：
+- 用户问饮食/营养/热量相关问题时，必须先调用 queryDietStats 获取饮食数据
+- 用户问健身/训练/运动相关问题时，必须先调用 queryFitnessStats 获取健身数据
+- 用户同时问饮食和健身时，两个工具都要调用
+- 不要调用与问题无关的工具
+- 调用工具获取数据后，必须基于数据给出具体的文字建议，不能只调用工具不回复
+
 请使用简洁、友好的语言回答。当需要操作用户数据时，请使用提供的工具函数。`;
   },
 
@@ -6697,40 +6704,49 @@ const AIClient = {
   },
 
   // 处理工具调用并继续对话
-  async chatWithTools(messages, onStream) {
-    const result = await this.chat(messages, onStream);
+    async chatWithTools(messages, onStream) {
+    let currentMessages = [...messages];
+    let finalResult = null;
+    const maxRounds = 5; // 最多5轮工具调用，防止死循环
 
-    if (result.tool_calls && result.tool_calls.length > 0) {
+    for (let round = 0; round < maxRounds; round++) {
+      const result = await this.chat(currentMessages, onStream);
+      finalResult = result;
+
+      if (!result.tool_calls || result.tool_calls.length === 0) {
+        break; // 没有工具调用了，返回最终结果
+      }
+
+      // 执行工具
       const toolResults = [];
       for (const tc of result.tool_calls) {
         let args = {};
-        try {
-          args = JSON.parse(tc.function.arguments);
-        } catch (e) {}
-
+        try { args = JSON.parse(tc.function.arguments); } catch (e) {}
         const toolResult = this.executeTool(tc.function.name, args);
         toolResults.push({
           role: 'tool',
           tool_call_id: tc.id,
           content: toolResult
         });
-
         if (onStream) {
           onStream(`\n\n[执行工具：${tc.function.name}]\n`, false);
         }
       }
 
-      // 将助手回复和工具结果加入消息，继续请求
-      const newMessages = [
-        ...messages,
+      // 将助手回复和工具结果加入消息，继续下一轮
+      currentMessages = [
+        ...currentMessages,
         { role: 'assistant', content: result.content || '', tool_calls: result.tool_calls },
         ...toolResults
       ];
-
-      return this.chat(newMessages, onStream);
     }
 
-    return result;
+    // 如果最后一轮还是只有工具调用没有文字，给一个默认回复
+    if (!finalResult.content && finalResult.tool_calls && finalResult.tool_calls.length > 0) {
+      finalResult.content = '已为你查询相关数据。根据你的记录，建议保持规律作息和均衡饮食，继续坚持锻炼！如有具体问题可以继续问我。';
+    }
+
+    return finalResult;
   }
 };
 
