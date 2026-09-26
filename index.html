@@ -2580,10 +2580,10 @@ a[href]:hover, .home-link:hover {
   height: 16px;
   cursor: pointer;
 }
-.zm-slider{-webkit-appearance:none;appearance:none;flex:1;height:6px;border-radius:999px;outline:none;cursor:pointer;background:linear-gradient(90deg,var(--accent) 0%,var(--accent) var(--fill,60%),var(--bg-hover) var(--fill,60%),var(--bg-hover) 100%);}
-.zm-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;background:#fff;border:2px solid var(--accent);box-shadow:0 2px 6px rgba(0,0,0,0.25);cursor:pointer;transition:transform .15s;}
+.zm-slider{-webkit-appearance:none;appearance:none;flex:1;height:6px;border-radius:999px;outline:none;cursor:pointer;background:linear-gradient(90deg,var(--primary) 0%,var(--primary) var(--fill,60%),var(--bg-hover) var(--fill,60%),var(--bg-hover) 100%);}
+.zm-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;background:#fff;border:2px solid var(--primary);box-shadow:0 2px 6px rgba(0,0,0,0.25);cursor:pointer;transition:transform .15s;}
 .zm-slider::-webkit-slider-thumb:hover{transform:scale(1.15);}
-.zm-slider::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:2px solid var(--accent);box-shadow:0 2px 6px rgba(0,0,0,0.25);cursor:pointer;}
+.zm-slider::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:2px solid var(--primary);box-shadow:0 2px 6px rgba(0,0,0,0.25);cursor:pointer;}
 .zm-slider::-moz-range-track{height:6px;border-radius:999px;background:var(--bg-hover);}
 
 .settings-about {
@@ -3157,7 +3157,7 @@ a[href]:hover, .home-link:hover {
 }
 
 .ai-message-avatar.user {
-  background: var(--accent);
+  background: var(--primary);
   color: white;
 }
 
@@ -3181,7 +3181,7 @@ a[href]:hover, .home-link:hover {
 }
 
 .ai-user-message .ai-message-content {
-  background: var(--accent);
+  background: var(--primary);
   color: white;
 }
 
@@ -3245,7 +3245,7 @@ a[href]:hover, .home-link:hover {
 }
 
 .ai-input:focus {
-  border-color: var(--accent);
+  border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.15);
 }
 
@@ -3303,7 +3303,7 @@ a[href]:hover, .home-link:hover {
 
 .ai-suggestion:hover {
   transform: translateY(-2px);
-  border-color: var(--accent);
+  border-color: var(--primary);
   box-shadow: 0 4px 12px rgba(10, 132, 255, 0.15);
 }
 
@@ -3609,14 +3609,14 @@ a[href]:hover, .home-link:hover {
 .calendar-view-tabs{display:flex;gap:8px;margin-right:auto;}
 .view-tab{padding:6px 16px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text-secondary);font-size:13px;cursor:pointer;transition:all 0.2s;}
 .view-tab:hover{background:var(--bg-hover);}
-.view-tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.view-tab.active{background:var(--primary);color:#fff;border-color:var(--primary);}
 .course-container{padding:20px;overflow-x:auto;}
 .course-timetable{display:flex;min-width:800px;}
 .course-time-col{width:70px;flex-shrink:0;}
 .course-corner{height:40px;border-bottom:1px solid var(--border);}
 .course-time-slot{height:100px;display:flex;align-items:flex-start;justify-content:center;padding-top:8px;font-size:12px;color:var(--text-secondary);border-bottom:1px solid var(--border);border-right:1px solid var(--border);}
 .course-day-col{flex:1;min-width:100px;}
-.course-day-header{height:40px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--text);border-bottom:2px solid var(--accent);}
+.course-day-header{height:40px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--text);border-bottom:2px solid var(--primary);}
 .course-slot{height:100px;padding:4px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);overflow:hidden;}
 .course-item{padding:6px 8px;border-radius:6px;margin-bottom:4px;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;}
 .course-item:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.15);}
@@ -3629,14 +3629,14 @@ a[href]:hover, .home-link:hover {
 .color-option:hover{transform:scale(1.1);}
 .color-option.selected{border-color:var(--text);box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--text);}
 .calendar-cell.empty{cursor:default;background:transparent;}
-.calendar-cell.today{background:rgba(10,132,255,0.1);border:1px solid var(--accent);}
-.calendar-cell.selected{background:rgba(10,132,255,0.2);border:1px solid var(--accent);}
+.calendar-cell.today{background:rgba(10,132,255,0.1);border:1px solid var(--primary);}
+.calendar-cell.selected{background:rgba(10,132,255,0.2);border:1px solid var(--primary);}
 .calendar-day-num{font-size:14px;font-weight:500;}
-.calendar-cell.today .calendar-day-num{color:var(--accent);font-weight:700;}
+.calendar-cell.today .calendar-day-num{color:var(--primary);font-weight:700;}
 .calendar-event-dots{display:flex;gap:3px;margin-top:4px;flex-wrap:wrap;}
 .calendar-event-dot{width:6px;height:6px;border-radius:50%;}
 .calendar-cell-top{display:flex;align-items:center;gap:6px;}
-.calendar-count-badge{min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--accent);color:#fff;font-size:11px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;}
+.calendar-count-badge{min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--primary);color:#fff;font-size:11px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;}
 [data-theme="light"] .calendar-count-badge{background:rgba(0,122,255,0.14);color:#007AFF;}
 .calendar-special-label{font-size:10px;font-weight:600;margin-top:3px;line-height:1.3;}
 .calendar-special-label.is-holiday{color:#FF453A;}
@@ -3647,7 +3647,7 @@ a[href]:hover, .home-link:hover {
 .calendar-sidebar-header h3{font-size:16px;margin:0;}
 .calendar-event-count{font-size:12px;color:var(--text-secondary);}
 .calendar-event-list{display:flex;flex-direction:column;gap:8px;max-height:500px;overflow-y:auto;}
-.calendar-event-item{padding:10px 12px;border-radius:8px;border-left:3px solid var(--accent);background:var(--bg-hover);}
+.calendar-event-item{padding:10px 12px;border-radius:8px;border-left:3px solid var(--primary);background:var(--bg-hover);}
 .calendar-event-header{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
 .calendar-event-title{font-size:13px;font-weight:500;}
 .calendar-event-title.completed{text-decoration:line-through;opacity:0.6;}
@@ -3658,14 +3658,14 @@ a[href]:hover, .home-link:hover {
 .habits-progress-bar{padding:16px;margin-bottom:16px;}
 .habits-progress-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
 .habits-progress-label{font-size:14px;font-weight:500;}
-.habits-progress-count{font-size:14px;font-weight:700;color:var(--accent);}
+.habits-progress-count{font-size:14px;font-weight:700;color:var(--primary);}
 .habits-toolbar{display:flex;justify-content:flex-end;margin-bottom:16px;}
 .habits-list{display:flex;flex-direction:column;gap:12px;}
 .habit-card{padding:16px;display:flex;justify-content:space-between;align-items:center;transition:all 0.2s;}
 .habit-card.checked{background:rgba(48,209,88,0.08);}
 .habit-main{display:flex;align-items:center;gap:14px;flex:1;}
 .habit-check{width:36px;height:36px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;flex-shrink:0;}
-.habit-check:hover{border-color:var(--accent);}
+.habit-check:hover{border-color:var(--primary);}
 .habit-check.checked{background:var(--success);border-color:var(--success);}
 .habit-info{flex:1;}
 .habit-name{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:500;margin-bottom:4px;}
@@ -3701,13 +3701,13 @@ a[href]:hover, .home-link:hover {
 .finance-transaction-amount.expense{color:var(--danger);}
 .finance-type-toggle{display:flex;gap:8px;}
 .finance-type-btn{flex:1;}
-.finance-type-btn.active{background:var(--accent);color:white;}
+.finance-type-btn.active{background:var(--primary);color:white;}
 .finance-category-item{margin-bottom:14px;}
 .finance-category-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
 .finance-category-name{font-size:13px;}
 .finance-category-amount{font-size:12px;color:var(--text-secondary);font-family:monospace;}
 .finance-category-bar{height:6px;background:var(--bg-hover);border-radius:3px;overflow:hidden;}
-.finance-category-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--purple));border-radius:3px;transition:width 0.3s;}
+.finance-category-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--purple));border-radius:3px;transition:width 0.3s;}
 
 /* ===== 全局AI助手悬浮按钮 ===== */
 .ai-float-btn {
@@ -3717,7 +3717,7 @@ a[href]:hover, .home-link:hover {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--purple));
+  background: linear-gradient(135deg, var(--primary), var(--purple));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3743,7 +3743,7 @@ a[href]:hover, .home-link:hover {
   position: absolute;
   inset: -4px;
   border-radius: 50%;
-  border: 2px solid var(--accent);
+  border: 2px solid var(--primary);
   opacity: 0;
   animation: ai-float-pulse 2s ease-out infinite;
   pointer-events: none;
@@ -3871,7 +3871,7 @@ a[href]:hover, .home-link:hover {
   transition: all 0.2s;
 }
 .ai-float-suggestion:hover {
-  border-color: var(--accent);
+  border-color: var(--primary);
   background: rgba(10, 132, 255, 0.1);
 }
 
@@ -3885,7 +3885,7 @@ a[href]:hover, .home-link:hover {
 }
 .ai-float-msg.user {
   align-self: flex-end;
-  background: var(--accent);
+  background: var(--primary);
   color: white;
   border-bottom-right-radius: 4px;
 }
@@ -3935,14 +3935,14 @@ a[href]:hover, .home-link:hover {
   transition: border-color 0.2s;
 }
 .ai-float-input:focus {
-  border-color: var(--accent);
+  border-color: var(--primary);
 }
 .ai-float-send {
   width: 40px;
   height: 40px;
   border: none;
   border-radius: 10px;
-  background: var(--accent);
+  background: var(--primary);
   color: white;
   cursor: pointer;
   display: flex;
@@ -4245,7 +4245,7 @@ a[href]:hover, .home-link:hover {
 
 .sidebar-settings-btn:hover {
   background: var(--bg-hover);
-  color: var(--accent);
+  color: var(--primary);
   transform: rotate(30deg);
 }
 
@@ -4272,14 +4272,14 @@ a[href]:hover, .home-link:hover {
 }
 
 .habit-category-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 .habit-category-btn.active {
-  background: var(--accent);
+  background: var(--primary);
   color: white;
-  border-color: var(--accent);
+  border-color: var(--primary);
 }
 
 .habit-category-tag {
@@ -4316,7 +4316,7 @@ a[href]:hover, .home-link:hover {
 }
 
 .habit-card:hover .habit-expand-icon {
-  color: var(--accent);
+  color: var(--primary);
 }
 
 .habit-main {
@@ -4461,14 +4461,14 @@ a[href]:hover, .home-link:hover {
 }
 
 .food-cat-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 .food-cat-btn.active {
-  background: var(--accent);
+  background: var(--primary);
   color: white;
-  border-color: var(--accent);
+  border-color: var(--primary);
 }
 
 .food-list {
@@ -4486,7 +4486,7 @@ a[href]:hover, .home-link:hover {
 }
 
 .food-item:hover {
-  border-color: var(--accent);
+  border-color: var(--primary);
   transform: translateX(4px);
 }
 
@@ -4517,7 +4517,7 @@ a[href]:hover, .home-link:hover {
 }
 
 .food-calories {
-  color: var(--accent);
+  color: var(--primary);
   font-weight: 600;
   font-size: 14px;
 }
@@ -6873,7 +6873,7 @@ const Timer = {
 /* ===== 可视化图表组件 ===== */
 const Charts = {
   // 进度环（环形进度条）
-  progressRing({ value, max = 100, size = 120, strokeWidth = 10, color = 'var(--accent)', label = '', sublabel = '' }) {
+  progressRing({ value, max = 100, size = 120, strokeWidth = 10, color = 'var(--primary)', label = '', sublabel = '' }) {
     const percent = Math.min(100, Math.max(0, (value / max) * 100));
     const radius = (size - strokeWidth) / 2;
     const circumference = 2 * Math.PI * radius;
@@ -6913,7 +6913,7 @@ const Charts = {
   },
 
   // 柱状图（横向）
-  barChart({ data, height = 200, color = 'var(--accent)', showValues = true }) {
+  barChart({ data, height = 200, color = 'var(--primary)', showValues = true }) {
     if (!data || data.length === 0) {
       return '<div class="chart-empty">暂无数据</div>';
     }
@@ -6966,7 +6966,7 @@ const Charts = {
           cy="${size / 2}"
           r="${radius}"
           fill="none"
-          stroke="${d.color || 'var(--accent)'}"
+          stroke="${d.color || 'var(--primary)'}"
           stroke-width="${strokeWidth}"
           stroke-dasharray="${dashLength} ${circumference - dashLength}"
           stroke-dashoffset="${-currentOffset}"
@@ -6980,7 +6980,7 @@ const Charts = {
 
     const legend = data.map(d => `
       <div class="chart-legend-item">
-        <span class="chart-legend-dot" style="background: ${d.color || 'var(--accent)'}"></span>
+        <span class="chart-legend-dot" style="background: ${d.color || 'var(--primary)'}"></span>
         <span class="chart-legend-label">${Utils.escapeHtml(d.label)}</span>
         <span class="chart-legend-value">${d.value} (${Math.round((d.value / total) * 100)}%)</span>
       </div>
@@ -7011,7 +7011,7 @@ const Charts = {
   },
 
   // 统计卡片（带图标、数值、标签、趋势）
-  statCard({ icon, label, value, trend = '', trendUp = null, color = 'var(--accent)' }) {
+  statCard({ icon, label, value, trend = '', trendUp = null, color = 'var(--primary)' }) {
     const trendIcon = trendUp === true ? '↑' : trendUp === false ? '↓' : '';
     const trendClass = trendUp === true ? 'trend-up' : trendUp === false ? 'trend-down' : '';
 
@@ -7814,7 +7814,7 @@ const Pages = {
             ${Charts.donutChart({
               data: [
                 { label: '高优先级', value: allTasks.filter(t => t.priority === 'high').length, color: 'var(--danger)' },
-                { label: '中优先级', value: allTasks.filter(t => t.priority === 'medium').length, color: 'var(--accent)' },
+                { label: '中优先级', value: allTasks.filter(t => t.priority === 'medium').length, color: 'var(--primary)' },
                 { label: '低优先级', value: allTasks.filter(t => t.priority === 'low').length, color: 'var(--success)' }
               ],
               size: 120,
@@ -7825,7 +7825,7 @@ const Pages = {
           </div>
         </div>
         <div class="chart-grid" style="margin-top: 16px; grid-template-columns: repeat(4, 1fr);">
-          ${Charts.statCard({ label: '总任务', value: allTasks.length, color: 'var(--accent)', icon: '📋' })}
+          ${Charts.statCard({ label: '总任务', value: allTasks.length, color: 'var(--primary)', icon: '📋' })}
           ${Charts.statCard({ label: '已完成', value: completed.length, color: 'var(--success)', icon: '✅' })}
           ${Charts.statCard({ label: '未完成', value: incomplete.length, color: 'var(--warning)', icon: '⏳' })}
           ${Charts.statCard({ label: '高优先级', value: allTasks.filter(t => t.priority === 'high').length, color: 'var(--danger)', icon: '🔥' })}
@@ -7918,7 +7918,7 @@ const Pages = {
         });
         // 显示排程结果
         const priorityLabel = { high: '高', medium: '中', low: '低' };
-        const scheduleHtml = schedule.map(s => '<div style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:8px;background:var(--bg-hover);margin-bottom:8px;"><span style="font-family:monospace;font-size:13px;color:var(--accent);min-width:110px;">' + s.startTime + '-' + s.endTime + '</span><span style="flex:1;font-size:14px;">' + Utils.escapeHtml(s.task.title) + '</span><span class="badge badge-' + s.task.priority + '" style="font-size:11px;">' + (priorityLabel[s.task.priority] || '中') + '</span></div>').join('');
+        const scheduleHtml = schedule.map(s => '<div style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:8px;background:var(--bg-hover);margin-bottom:8px;"><span style="font-family:monospace;font-size:13px;color:var(--primary);min-width:110px;">' + s.startTime + '-' + s.endTime + '</span><span style="flex:1;font-size:14px;">' + Utils.escapeHtml(s.task.title) + '</span><span class="badge badge-' + s.task.priority + '" style="font-size:11px;">' + (priorityLabel[s.task.priority] || '中') + '</span></div>').join('');
         const modal = UI.showModal({
           title: '智能排程结果',
           body: '<p style="color:var(--text-secondary);margin-bottom:16px;font-size:13px;">已根据优先级为你安排今天的时间，每个任务30分钟：</p>' + scheduleHtml,
@@ -8145,7 +8145,7 @@ const Pages = {
                 max: 600,
                 size: 120,
                 strokeWidth: 10,
-                color: 'var(--accent)',
+                color: 'var(--primary)',
                 label: Utils.formatMinutes(DataStore.Study.getAllWeekMinutes()),
                 sublabel: '目标10小时'
               })}
@@ -8157,7 +8157,7 @@ const Pages = {
               data: subjects.map((s, i) => ({
                 label: s.name,
                 value: DataStore.Study.getTotalMinutes(s.id),
-                color: ['var(--accent)', 'var(--purple)', 'var(--success)', 'var(--warning)', 'var(--danger)', 'var(--orange)'][i % 6]
+                color: ['var(--primary)', 'var(--purple)', 'var(--success)', 'var(--warning)', 'var(--danger)', 'var(--orange)'][i % 6]
               })).filter(d => d.value > 0),
               size: 120,
               strokeWidth: 20,
@@ -8167,7 +8167,7 @@ const Pages = {
           </div>
         </div>
         <div class="chart-grid" style="margin-top: 16px; grid-template-columns: repeat(4, 1fr);">
-          ${Charts.statCard({ label: '本周学习', value: Utils.formatMinutes(DataStore.Study.getAllWeekMinutes()), color: 'var(--accent)', icon: '📚' })}
+          ${Charts.statCard({ label: '本周学习', value: Utils.formatMinutes(DataStore.Study.getAllWeekMinutes()), color: 'var(--primary)', icon: '📚' })}
           ${Charts.statCard({ label: '总学习时长', value: Utils.formatMinutes(subjects.reduce((sum, s) => sum + DataStore.Study.getTotalMinutes(s.id), 0)), color: 'var(--purple)', icon: '⏱️' })}
           ${Charts.statCard({ label: '科目数', value: subjects.length, color: 'var(--success)', icon: '📖' })}
           ${Charts.statCard({ label: '学习任务', value: subjects.reduce((sum, s) => sum + (DataStore.Study.getTasks(s.id) || []).length, 0), color: 'var(--warning)', icon: '✅' })}
@@ -8406,7 +8406,7 @@ const Pages = {
             ${Charts.donutChart({
               data: [
                 { label: '待办', value: DataStore.Work.getTasksByStatus('todo').length, color: 'var(--warning)' },
-                { label: '进行中', value: DataStore.Work.getTasksByStatus('in_progress').length, color: 'var(--accent)' },
+                { label: '进行中', value: DataStore.Work.getTasksByStatus('in_progress').length, color: 'var(--primary)' },
                 { label: '已完成', value: DataStore.Work.getTasksByStatus('done').length, color: 'var(--success)' }
               ],
               size: 120,
@@ -8417,9 +8417,9 @@ const Pages = {
           </div>
         </div>
         <div class="chart-grid" style="margin-top: 16px; grid-template-columns: repeat(4, 1fr);">
-          ${Charts.statCard({ label: '总任务', value: totalTasks, color: 'var(--accent)', icon: '📋' })}
+          ${Charts.statCard({ label: '总任务', value: totalTasks, color: 'var(--primary)', icon: '📋' })}
           ${Charts.statCard({ label: '待办', value: DataStore.Work.getTasksByStatus('todo').length, color: 'var(--warning)', icon: '⏳' })}
-          ${Charts.statCard({ label: '进行中', value: DataStore.Work.getTasksByStatus('in_progress').length, color: 'var(--accent)', icon: '🔄' })}
+          ${Charts.statCard({ label: '进行中', value: DataStore.Work.getTasksByStatus('in_progress').length, color: 'var(--primary)', icon: '🔄' })}
           ${Charts.statCard({ label: '已完成', value: DataStore.Work.getTasksByStatus('done').length, color: 'var(--success)', icon: '✅' })}
         </div>
       </div>
@@ -8719,7 +8719,7 @@ const Pages = {
                     });
                   }
                 });
-                const colors = ['var(--orange)', 'var(--accent)', 'var(--purple)', 'var(--success)', 'var(--danger)', 'var(--warning)'];
+                const colors = ['var(--orange)', 'var(--primary)', 'var(--purple)', 'var(--success)', 'var(--danger)', 'var(--warning)'];
                 return Object.entries(partCount).map(([label, value], i) => ({
                   label,
                   value,
@@ -8743,7 +8743,7 @@ const Pages = {
         </div>
         <div class="chart-grid" style="margin-top: 16px; grid-template-columns: repeat(4, 1fr);">
           ${Charts.statCard({ label: '本周训练', value: DataStore.Fitness.getWeekTrainingCount() + '次', color: 'var(--orange)', icon: '💪' })}
-          ${Charts.statCard({ label: '总训练记录', value: (DataStore.Fitness.getRecords() || []).length + '次', color: 'var(--accent)', icon: '📊' })}
+          ${Charts.statCard({ label: '总训练记录', value: (DataStore.Fitness.getRecords() || []).length + '次', color: 'var(--primary)', icon: '📊' })}
           ${Charts.statCard({ label: '计划动作', value: (() => {
             const weekdays = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
             let count = 0;
@@ -9192,8 +9192,8 @@ const Pages = {
         </div>
         <div class="chart-grid" style="margin-top: 16px; grid-template-columns: repeat(4, 1fr);">
           ${Charts.statCard({ label: '今日热量', value: total.calories + 'kcal', color: 'var(--success)', icon: '🔥' })}
-          ${Charts.statCard({ label: '剩余热量', value: Math.max(0, targetCalories - total.calories) + 'kcal', color: 'var(--accent)', icon: '⚖️' })}
-          <!-- 饮水量添加模块 -->          <div class="water-card glass-card" style="padding: 16px; display: flex; flex-direction: column; gap: 10px;">            <div style="display: flex; align-items: center; justify-content: space-between;">              <span style="font-size: 13px; color: var(--text-secondary);">💧 饮水量</span>              <span style="font-size: 20px; font-weight: 700; color: var(--accent);">${DataStore.Diet.getWater(Pages._dietDate)}/${App.state.data.preferences.dailyWaterTarget || 8}杯</span>            </div>            <div style="height: 6px; background: rgba(128,128,128,0.2); border-radius: 3px; overflow: hidden;">              <div style="height: 100%; width: ${Math.min(100, (DataStore.Diet.getWater(Pages._dietDate) / (App.state.data.preferences.dailyWaterTarget || 8)) * 100)}%; background: linear-gradient(90deg, #0A84FF, #30D158); border-radius: 3px; transition: width 0.3s;"></div>            </div>            <div style="display: flex; gap: 8px;">              <button class="btn btn-primary btn-sm" data-action="add-water" style="flex: 1;">+ 一杯水</button>              <button class="btn btn-secondary btn-sm" data-action="undo-water" style="flex: 1;">- 撤销</button>            </div>          </div>
+          ${Charts.statCard({ label: '剩余热量', value: Math.max(0, targetCalories - total.calories) + 'kcal', color: 'var(--primary)', icon: '⚖️' })}
+          <!-- 饮水量添加模块 -->          <div class="water-card glass-card" style="padding: 16px; display: flex; flex-direction: column; gap: 10px;">            <div style="display: flex; align-items: center; justify-content: space-between;">              <span style="font-size: 13px; color: var(--text-secondary);">💧 饮水量</span>              <span style="font-size: 20px; font-weight: 700; color: var(--primary);">${DataStore.Diet.getWater(Pages._dietDate)}/${App.state.data.preferences.dailyWaterTarget || 8}杯</span>            </div>            <div style="height: 6px; background: rgba(128,128,128,0.2); border-radius: 3px; overflow: hidden;">              <div style="height: 100%; width: ${Math.min(100, (DataStore.Diet.getWater(Pages._dietDate) / (App.state.data.preferences.dailyWaterTarget || 8)) * 100)}%; background: linear-gradient(90deg, #0A84FF, #30D158); border-radius: 3px; transition: width 0.3s;"></div>            </div>            <div style="display: flex; gap: 8px;">              <button class="btn btn-primary btn-sm" data-action="add-water" style="flex: 1;">+ 一杯水</button>              <button class="btn btn-secondary btn-sm" data-action="undo-water" style="flex: 1;">- 撤销</button>            </div>          </div>
           ${Charts.statCard({ label: '餐次数', value: mealTypes.reduce((sum, mt) => sum + (DataStore.Diet.getMeals(Pages._dietDate, mt.id) || []).length, 0) + '餐', color: 'var(--purple)', icon: '🍽️' })}
         </div>
       </div>
@@ -9497,7 +9497,7 @@ const Pages = {
         <p>适度游戏，健康生活 · 记录游玩时长，提醒休息</p>
       </div>
 
-      <div class="game-toolbar"><div class="game-week-stat">今日游玩：<strong style="color: var(--accent);">${Utils.formatMinutes(DataStore.Game.getDayMinutes(Utils.todayStr()))}</strong> · 本周：<strong>${Utils.formatMinutes(weekTotal)}</strong> · 每日限制：<strong>${Utils.formatMinutes(App.state.data.preferences.dailyGameTimeLimit || 120)}</strong></div><button class="btn btn-primary" data-action="new-game">添加游戏</button></div>
+      <div class="game-toolbar"><div class="game-week-stat">今日游玩：<strong style="color: var(--primary);">${Utils.formatMinutes(DataStore.Game.getDayMinutes(Utils.todayStr()))}</strong> · 本周：<strong>${Utils.formatMinutes(weekTotal)}</strong> · 每日限制：<strong>${Utils.formatMinutes(App.state.data.preferences.dailyGameTimeLimit || 120)}</strong></div><button class="btn btn-primary" data-action="new-game">添加游戏</button></div>
 
 
       <div class="game-grid">
@@ -9527,7 +9527,7 @@ const Pages = {
               data: games.map((g, i) => ({
                 label: g.name,
                 value: DataStore.Game.getTotalMinutes(g.id),
-                color: ['var(--purple)', 'var(--accent)', 'var(--success)', 'var(--warning)', 'var(--danger)', 'var(--orange)'][i % 6]
+                color: ['var(--purple)', 'var(--primary)', 'var(--success)', 'var(--warning)', 'var(--danger)', 'var(--orange)'][i % 6]
               })).filter(d => d.value > 0),
               size: 120,
               strokeWidth: 20,
@@ -9537,7 +9537,7 @@ const Pages = {
           </div>
         </div>
         <div class="chart-grid" style="margin-top: 16px; grid-template-columns: repeat(4, 1fr);">
-          ${Charts.statCard({ label: '今日时长', value: Utils.formatMinutes(DataStore.Game.getDayMinutes(Utils.todayStr())), color: 'var(--accent)', icon: '⏱️' })}
+          ${Charts.statCard({ label: '今日时长', value: Utils.formatMinutes(DataStore.Game.getDayMinutes(Utils.todayStr())), color: 'var(--primary)', icon: '⏱️' })}
           ${Charts.statCard({ label: '本周时长', value: Utils.formatMinutes(weekTotal), color: 'var(--purple)', icon: '🎮' })}
           ${Charts.statCard({ label: '总时长', value: Utils.formatMinutes(games.reduce((sum, g) => sum + DataStore.Game.getTotalMinutes(g.id), 0)), color: 'var(--success)', icon: '🗓️' })}
           ${Charts.statCard({ label: '日均时长', value: Utils.formatMinutes(Math.round(weekTotal / 7)), color: 'var(--warning)', icon: '📊' })}
@@ -10409,7 +10409,7 @@ const Pages = {
       cells.push({ day: d, date: dateStr, events: eventsByDate[dateStr] || [], special: specialByDate[dateStr] || null });
     }
     const selectedEvents = eventsByDate[selectedDate] || [];
-    const typeColors = { custom:'var(--accent)', today:'var(--warning)', study:'var(--accent)', work:'var(--purple)', fitness:'var(--orange)', diet:'var(--success)', game:'var(--purple)' };
+    const typeColors = { custom:'var(--primary)', today:'var(--warning)', study:'var(--primary)', work:'var(--purple)', fitness:'var(--orange)', diet:'var(--success)', game:'var(--purple)' };
     const typeLabels = { custom:'自定义', today:'今日计划', study:'学习', work:'工作', fitness:'健身', diet:'饮食', game:'游戏' };
     
     const viewTabs = '<div class="calendar-view-tabs"><button class="view-tab ' + (Pages._calendarView === 'month' ? 'active' : '') + '" data-action="switch-view" data-view="month">月视图</button><button class="view-tab ' + (Pages._calendarView === 'course' ? 'active' : '') + '" data-action="switch-view" data-view="course">课表</button></div>';
@@ -10444,11 +10444,11 @@ const Pages = {
         const isSelected = cell.date === selectedDate;
         const hasEvents = cell.events && cell.events.length > 0;
         const eventCount = cell.events ? cell.events.length : 0;
-        const eventDots = cell.events ? cell.events.slice(0, 3).map(e => '<span class="calendar-event-dot" style="background:' + (typeColors[e.type] || 'var(--accent)') + '"></span>').join('') : '';
+        const eventDots = cell.events ? cell.events.slice(0, 3).map(e => '<span class="calendar-event-dot" style="background:' + (typeColors[e.type] || 'var(--primary)') + '"></span>').join('') : '';
         const countBadge = eventCount > 0 ? '<span class="calendar-count-badge">' + eventCount + '</span>' : '';
         const specialLabel = cell.special ? '<div class="calendar-special-label ' + (cell.special.builtin?'is-holiday':'is-custom') + '" ' + (cell.special.builtin ? '' : ('data-action="delete-special" data-id="' + cell.special.id + '" title="点击删除"')) + '>' + Utils.escapeHtml(cell.special.label) + '</div>' : '';
         return '<div class="calendar-cell ' + (isToday?'today':'') + ' ' + (isSelected?'selected':'') + ' ' + (hasEvents?'has-events':'') + '" data-action="select-date" data-date="' + cell.date + '"><div class="calendar-cell-top"><span class="calendar-day-num">' + cell.day + '</span>' + countBadge + '</div><div class="calendar-event-dots">' + eventDots + '</div>' + specialLabel + '</div>';
-      }).join('') + '</div></div><div class="calendar-sidebar card"><div class="calendar-sidebar-header"><h3>' + Utils.formatDate(selectedDate) + '</h3><span class="calendar-event-count">' + selectedEvents.length + ' 项日程</span></div><div class="calendar-event-list">' + (selectedEvents.length > 0 ? selectedEvents.map(e => '<div class="calendar-event-item" style="border-left-color:' + (typeColors[e.type] || 'var(--accent)') + '"><div class="calendar-event-header"><span class="calendar-event-title ' + (e.completed?'completed':'') + '">' + Utils.escapeHtml(e.title) + '</span><span class="calendar-event-type" style="color:' + (typeColors[e.type] || 'var(--accent)') + '">' + (typeLabels[e.type] || e.type) + '</span></div>' + (e.time ? '<div class="calendar-event-time">⏰ ' + e.time + '</div>' : '') + '</div>').join('') : '<div class="empty-state"><p>这一天没有日程</p></div>') + '</div></div></div>';
+      }).join('') + '</div></div><div class="calendar-sidebar card"><div class="calendar-sidebar-header"><h3>' + Utils.formatDate(selectedDate) + '</h3><span class="calendar-event-count">' + selectedEvents.length + ' 项日程</span></div><div class="calendar-event-list">' + (selectedEvents.length > 0 ? selectedEvents.map(e => '<div class="calendar-event-item" style="border-left-color:' + (typeColors[e.type] || 'var(--primary)') + '"><div class="calendar-event-header"><span class="calendar-event-title ' + (e.completed?'completed':'') + '">' + Utils.escapeHtml(e.title) + '</span><span class="calendar-event-type" style="color:' + (typeColors[e.type] || 'var(--primary)') + '">' + (typeLabels[e.type] || e.type) + '</span></div>' + (e.time ? '<div class="calendar-event-time">⏰ ' + e.time + '</div>' : '') + '</div>').join('') : '<div class="empty-state"><p>这一天没有日程</p></div>') + '</div></div></div>';
     }
           Pages.bindClick(container, (e) => {
         const target = e.target.closest('[data-action]');
@@ -10601,7 +10601,7 @@ const Pages = {
     
     // 统计卡片
     const statsHtml = allHabits.length > 0 ? '<div class="chart-section"><h3 class="chart-section-title">打卡统计</h3><div class="chart-grid" style="grid-template-columns: repeat(4, 1fr);">' + 
-      Charts.statCard({ label: '习惯总数', value: allHabits.length + '个', color: 'var(--accent)', icon: '📋' }) +
+      Charts.statCard({ label: '习惯总数', value: allHabits.length + '个', color: 'var(--primary)', icon: '📋' }) +
       Charts.statCard({ label: '今日完成率', value: todayProgress.percent + '%', color: 'var(--success)', icon: '✅' }) +
       Charts.statCard({ label: '累计打卡', value: totalCheckins + '次', color: 'var(--warning)', icon: '🔥' }) +
       Charts.statCard({ label: '平均连续', value: avgStreak + '天', color: 'var(--purple)', icon: '🏆' }) +
