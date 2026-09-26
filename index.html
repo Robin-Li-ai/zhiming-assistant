@@ -6376,6 +6376,10 @@ const AIClient = {
 - 今日待办的时间(time)格式为HH:MM，如"14:30"
 
 工具使用指引：
+- 添加任务时，必须根据任务类型选择正确的工具：
+  - 日常琐事、提醒、临时事项 → addTodayTask（今日待办）
+  - 学习相关（背单词、复习、做作业、看书） → addStudyTask（学习计划）
+  - 工作相关（项目、会议、邮件、报告） → addWorkTask（工作计划）
 - 用户问饮食/营养/热量相关问题时，必须先调用 queryDietStats 获取饮食数据
 - 用户问健身/训练/运动相关问题时，必须先调用 queryFitnessStats 获取健身数据
 - 用户同时问饮食和健身时，两个工具都要调用
@@ -6392,7 +6396,7 @@ const AIClient = {
         type: 'function',
         function: {
           name: 'addTodayTask',
-          description: '添加今日待办任务',
+          description: '添加今日待办任务（用于日常琐事、提醒、临时事项，如下午取快递、晚上买菜）',
           parameters: {
             type: 'object',
             properties: {
@@ -6408,8 +6412,24 @@ const AIClient = {
       {
         type: 'function',
         function: {
+          name: 'addStudyTask',
+          description: '添加学习任务（用于学习相关事项，如背单词、复习、做作业、看书）',
+          parameters: {
+            type: 'object',
+            properties: {
+              subject: { type: 'string', description: '科目名称，如英语、高数、编程' },
+              title: { type: 'string', description: '学习任务标题' },
+              targetMinutes: { type: 'number', description: '目标学习时长（分钟），可选' }
+            },
+            required: ['title']
+          }
+        }
+      },
+      {
+        type: 'function',
+        function: {
           name: 'addWorkTask',
-          description: '添加工作任务',
+          description: '添加工作任务（用于工作相关事项，如项目、会议、邮件、报告）',
           parameters: {
             type: 'object',
             properties: {
@@ -6511,6 +6531,19 @@ const AIClient = {
             notes: args.notes || ''
           });
           return JSON.stringify({ success: true, message: `已添加今日待办：${args.title}` });
+
+        case 'addStudyTask': {
+          let subjectId = null;
+          if (args.subject) {
+            const existing = DataStore.Study.getSubjects().find(s => s.name === args.subject);
+            subjectId = existing ? existing.id : DataStore.Study.addSubject(args.subject).id;
+          } else {
+            const defaultSubj = DataStore.Study.getSubjects().find(s => s.name === '通用学习');
+            subjectId = defaultSubj ? defaultSubj.id : DataStore.Study.addSubject('通用学习').id;
+          }
+          DataStore.Study.addTask(subjectId, args.title, args.targetMinutes || 0);
+          return JSON.stringify({ success: true, message: '已添加学习任务：' + args.title });
+        }
 
         case 'addWorkTask':
           DataStore.Work.addTask({
