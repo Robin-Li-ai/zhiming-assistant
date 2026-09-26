@@ -10571,9 +10571,7 @@ Pages.bindClick(container, (e) => {
       '<div class="habits-toolbar">' + categoryHtml + '<button class="btn btn-primary" data-action="add-habit">+ 添加习惯</button></div>' +
       '<div class="habits-list">' + habitsHtml + '</div>' + statsHtml;
     
-    // 事件监听器（用标志位防止重复绑定）
-    if (!container._habitsListenerBound) {
-      container._habitsListenerBound = true;
+    // 事件监听器（每次渲染重新绑定，避免页面切换后监听器被移除）
       Pages.bindClick(container, (e) => {
         const target = e.target.closest('[data-action]');
         if (!target) return;
@@ -10624,10 +10622,8 @@ Pages.bindClick(container, (e) => {
           UI.confirm({ title: '删除习惯', message: '确定要删除这个习惯吗？所有打卡记录也会被删除。', confirmText: '删除', danger: true, onConfirm: () => { DataStore.Habits.deleteHabit(id); UI.toast('习惯已删除', 'success'); Pages.renderHabits(container); } });
         }
       });
-    }
   },
-
-  // ===== 理财记账页面 =====
+// ===== 理财记账页面 =====
   renderFinance(container) {
     if (typeof Pages._financeYear === 'undefined') {
       const now = new Date();
