@@ -9186,10 +9186,7 @@ const Pages = {
     `;
 
     // 事件委托
-        // 用标志位确保事件监听器只绑定一次，防止重复绑定导致日期跳跃
-    if (!container._dietListenerBound) {
-      container._dietListenerBound = true;
-Pages.bindClick(container, (e) => {
+        Pages.bindClick(container, (e) => {
       const target = e.target.closest('[data-action]');
       if (!target) return;
       const action = target.dataset.action;
@@ -9343,9 +9340,6 @@ Pages.bindClick(container, (e) => {
         });
       }
     });
-    }
-
-
     // 日期输入变化
     const dateInput = container.querySelector('#diet-date');
     if (dateInput) {
@@ -10707,10 +10701,7 @@ Pages.bindClick(container, (e) => {
       }).join('') : '<div class="empty-state"><p>暂无支出数据</p></div>') +
       '</div></div>';
 
-        // 用标志位确保事件监听器只绑定一次，防止重复绑定导致月份跳跃
-    if (!container._financeListenerBound) {
-      container._financeListenerBound = true;
-Pages.bindClick(container, (e) => {
+        Pages.bindClick(container, (e) => {
       const target = e.target.closest('[data-action]');
       if (!target) return;
       const action = target.dataset.action;
@@ -10751,8 +10742,6 @@ Pages.bindClick(container, (e) => {
         UI.confirm({ title: '删除记录', message: '确定要删除这条交易记录吗？', confirmText: '删除', danger: true, onConfirm: () => { DataStore.Finance.deleteTransaction(id); UI.toast('已删除', 'success'); Pages.renderFinance(container); } });
       }
     });
-    }
-
   }
 
 };
