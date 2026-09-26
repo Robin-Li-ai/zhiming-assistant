@@ -11000,17 +11000,23 @@ const FloatAI = {
         return;
       }
 
-      // 调用AI
-      const history = [{ role: 'user', content: text }];
-      const response = await AIClient.chatWithTools(history, (chunk, done) => {
-        if (chunk && chunk.content) {
-          loadingMsg.textContent = chunk.content;
+      // 调用AI（带系统提示词）
+      const systemPrompt = AIClient.getSystemPrompt ? AIClient.getSystemPrompt() : '你是一个个人助手AI。';
+      const history = [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: text }
+      ];
+      let fullContent = '';
+      const result = await AIClient.chatWithTools(history, (chunk, done) => {
+        if (!done && chunk) {
+          fullContent += chunk;
+          loadingMsg.textContent = fullContent;
           messagesEl.scrollTop = messagesEl.scrollHeight;
         }
       });
 
       loadingMsg.className = 'ai-float-msg assistant';
-      loadingMsg.textContent = response || '抱歉，我没有理解你的意思。';
+      loadingMsg.textContent = (result && result.content) ? result.content : '抱歉，我没有理解你的意思。';
     } catch (err) {
       loadingMsg.className = 'ai-float-msg assistant';
       loadingMsg.textContent = '出错了：' + err.message;
