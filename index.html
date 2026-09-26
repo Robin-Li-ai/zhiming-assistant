@@ -3188,6 +3188,7 @@ a[href]:hover, .home-link:hover {
 .ai-assistant-message .ai-message-content {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
+  color: var(--text);
 }
 
 .ai-tool-message .ai-message-content {
@@ -6364,6 +6365,8 @@ const AIClient = {
 2. 帮助用户添加任务（今日/学习/工作）
 3. 分析用户的数据并给出建议
 4. 进行日常对话和闲聊
+5. 根据用户的饮食记录给出营养建议（热量摄入是否达标、营养均衡建议、饮水提醒）
+6. 根据用户的健身记录给出训练建议（训练频率、部位均衡性、渐进超负荷建议）
 
 重要规则：
 - 添加任务时，截止日期(dueDate)必须是YYYY-MM-DD格式的具体日期
@@ -6540,8 +6543,19 @@ const AIClient = {
 
         case 'queryFitnessStats': {
           const weekCount = DataStore.Fitness.getWeekTrainingCount();
+          const workouts = DataStore.Fitness.getWorkouts ? DataStore.Fitness.getWorkouts() : [];
+          const weekWorkouts = workouts.filter(w => {
+            const wDate = new Date(w.date);
+            const now = new Date();
+            const diff = (now - wDate) / (1000*60*60*24);
+            return diff <= 7 && diff >= 0;
+          });
+          const bodyParts = {};
+          weekWorkouts.forEach(w => { if (w.bodyPart) bodyParts[w.bodyPart] = (bodyParts[w.bodyPart]||0)+1; });
           return JSON.stringify({
             weekTrainingCount: weekCount,
+            weekWorkouts: weekWorkouts.map(w => ({date: w.date, name: w.name, bodyPart: w.bodyPart, duration: w.duration})),
+            bodyPartDistribution: bodyParts,
             latestBodyData: DataStore.Fitness.getLatestBodyData()
           });
         }
